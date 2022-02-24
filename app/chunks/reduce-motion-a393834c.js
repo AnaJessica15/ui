@@ -1,0 +1,1 @@
+import{ak as t}from"./vendor-b0fa9227.js";const d=t(!1,e=>{if(typeof window=="undefined"){e(!1);return}const n=window.matchMedia("(prefers-reduced-motion: reduce)");e(n.matches);const r=o=>{e(o.matches)};return n.addEventListener("change",r),()=>{n.removeEventListener("change",r)}});export{d as r};
