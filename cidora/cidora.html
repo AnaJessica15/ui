@@ -1,0 +1,2488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <title>Document</title>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link
+    href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico"
+    rel="shortcut icon">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+      background: #131417;
+    }
+
+    h,
+    h1 {
+      font-size: 2.4em;
+      font-weight: 650;
+      font-family: 'Source Code Pro', sans-serif;
+      line-height: 1.1;
+      color: white;
+    }
+
+    h1 {
+      font-size: 1.3em;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 1em;
+      font-weight: 500;
+      color: #c7c9d3;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: #76daff;
+    }
+
+    header {
+      padding: 10px 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    header>a {
+      color: #008819;
+    }
+
+    #logo {
+      height: 50px;
+      width: 50px;
+    }
+
+    #big-logo {
+      height: 100px;
+      width: 100px;
+      display: block;
+      margin: 20px;
+      margin-bottom: 20px;
+    }
+
+    .signup {
+      height: 40px;
+      width: auto;
+      padding: 10px;
+      background-color: #47cf73;
+      border: none;
+      border-radius: 5px;
+      color: black;
+      font-weight: 550;
+    }
+
+    #input-search.search-query {
+      border: none;
+      border-radius: 5px;
+      background-color: #717790;
+      color: white;
+    }
+
+    .description {
+      height: 90vh;
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 2rem;
+      margin: 0 auto;
+      position: relative;
+      display: block;
+    }
+
+    #right {
+      margin-top: 400px;
+      bottom: auto;
+      width: 750px;
+      float: right;
+      margin-right: 90px;
+      position: absolute;
+      visibility: visible;
+    }
+
+    .column {
+      width: 50%;
+      float: left;
+      margin: 0 auto;
+      height: 75vh;
+      padding: 20px;
+    }
+
+    .row ::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .editor {
+      height: 70%;
+      width: 80%;
+      border-radius: 10px;
+      background: linear-gradient(109.61deg, #4c4f5a 4.26%, #202125 84.84%);
+      margin: 20px;
+      right: 0;
+      float: right;
+    }
+
+    .editor-template {
+      height: 140px;
+      width: 300px;
+      background: #1d1e22;
+      border-radius: 6px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, .5);
+      right: 0;
+      float: right;
+      margin-top: -20px;
+      margin-bottom: 25px;
+      margin-right: 50px;
+    }
+
+    .editor-template:nth-child(2) {
+      margin-right: 0;
+    }
+
+    .editor-template:nth-child(3) {
+      margin-right: 80px;
+      margin-bottom: 0px;
+    }
+
+    .title {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 20px;
+    }
+
+    .title>div {
+      width: auto;
+    }
+
+    .title>div:nth-child(3) {
+      float: right;
+      padding-right: 5px;
+      margin-left: auto;
+    }
+
+    i,
+    code {
+      padding: 5px;
+      color: #c5c8d4;
+    }
+
+    .code {
+      padding-left: 5px;
+      padding-right: 5px;
+      height: auto;
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    .burnt {
+      color: #a88038;
+    }
+
+    .yellow {
+      color: #e1ca72;
+    }
+
+    .green {
+      color: #74b087;
+    }
+
+    .purple {
+      color: #9f8198;
+    }
+
+    .orange {
+      color: #de7300;
+    }
+
+    .blue {
+      color: #7a99ad;
+    }
+
+    .three-item {
+      float: left;
+      width: 30%;
+      height: 50vh;
+      background-color: #2c303a;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 20px;
+    }
+
+    .three-main::after {
+      display: table;
+      content: "";
+      clear: both;
+    }
+
+    #codepen-svg {
+      height: 55px;
+      width: 49px;
+      display: block;
+    }
+
+    .text-box {
+      padding: 10px;
+      height: auto;
+      width: auto;
+    }
+
+    .grey-button {
+      height: auto;
+      width: auto;
+      padding: 10px;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      font-family: 1.3em;
+      border: none;
+      border-radius: 5px;
+      background: #444857;
+    }
+
+    .pro {
+      background-color: #ffdd40;
+      color: black;
+      border-radius: 2px;
+      font-weight: 600;
+      padding: 2px;
+      font-size: 1em;
+    }
+
+    #down {
+      position: absolute;
+      bottom: -10px;
+      left: -100px;
+      width: 900px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 100%;
+        height: 90vh;
+      }
+
+      .editor {
+        justify-content: center;
+        margin-top: 50px;
+        height: 45vh;
+        width: 80vw;
+        margin-right: 5px;
+        margin-left: 5px;
+      }
+
+      .editor-template {
+        margin-bottom: 30px;
+      }
+
+      .editor-template:nth-child(1) {
+        margin-right: -40px;
+      }
+
+      .editor-template:nth-child(3) {
+        margin-right: -25px;
+      }
+
+      #right {
+        display: none;
+      }
+
+      h {
+        font-size: 2em;
+      }
+
+      .three-item {
+        width: 90%;
+        height: auto;
+        justify-content: center;
+        margin-left: 23px;
+        margin-right: 20px;
+        margin-bottom: 15px;
+      }
+
+      #down {
+        margin-bottom: -0px;
+        width: 95vw;
+        left: -15px;
+        margin-top: 10px;
+      }
+
+    }
+
+    /* Start Base Styles */
+    html {
+      font-size: 100%;
+    }
+
+    :root {
+      /* Colors */
+      --clr-primary: hsl(235, 81%, 60%);
+      --clr-white: hsl(0, 0%, 100%);
+      --clr-black: hsl(0, 0%, 0%);
+      --clr-red: hsl(355, 100%, 60%);
+      --clr-gray: hsl(0deg 0% 35%);
+      --clr-saffron: hsl(43, 93%, 64%);
+      --clr-turquoise: hsl(161, 86%, 56%);
+      --clr-lightBlue: hsl(234, 73%, 90%);
+      --clr-lightRead: hsl(350, 75%, 89%);
+      --clr-lightSaffron: hsl(52, 56%, 92%);
+      --clr-lightTurquoise: hsl(167, 67%, 88%);
+      --clr-lightGray: hsl(0deg 0% 44%);
+      --clr-body: hsl(230, 43%, 97%);
+      --clr-hero: hsl(222, 68%, 95%);
+      --clr-overlay: hsla(0, 0%, 0%, 0.5);
+      --clr-scrollbarThumb: hsl(234, 100%, 80%);
+      --clr-social-icon: hsl(210, 25%, 98%);
+      --clr-dribbble: hsl(330, 80%, 67%);
+      --clr-facebook: hsl(220, 46%, 48%);
+      --clr-twitter: hsl(203, 89%, 53%);
+      --clr-youtube: hsl(0, 100%, 50%);
+
+      /* Font */
+      --ff: 'Rubik', sans-serif;
+      /* Font size */
+      --fs-biggest: 4.375rem;
+      --fs-bigger: 3rem;
+      --fs-big: 1.5rem;
+      --fs-bold: 1.25rem;
+      --fs-medium: 1.125rem;
+      --fs-normal: 1rem;
+      /* Font weight */
+      --fw-black: 900;
+      --fw-bold: 700;
+      --fw-semiBold: 600;
+      --fw-medium: 500;
+      --fw-regular: 400;
+
+      /* Header height (mobile & desktop) */
+      --header-height-m: 4rem;
+      --header-height-d: 8rem;
+
+      /* Scrollbar */
+      --scrollbar-width: 0.4375rem;
+
+      /* Z-index */
+      --z-fixed: 100;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      scrollbar-width: var(--scrollbar-width);
+      scrollbar-color: var(--clr-scrollbarThumb) var(--clr-white);
+    }
+
+    body {
+      font-family: var(--ff);
+      font-size: var(--fs-normal);
+      background-color: var(--clr-body);
+      color: var(--clr-black);
+    }
+
+    main>section {
+      padding-top: clamp(2rem, 10vw, 5rem);
+      padding-bottom: clamp(2rem, 10vw, 5rem);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-weight: var(--fw-bold);
+    }
+
+    p {
+      font-size: var(--fs-medium);
+      font-weight: var(--fw-regular);
+      line-height: 1.5625rem;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    a,
+    a:hover,
+    a:focus,
+    a:active {
+      text-decoration: none;
+    }
+
+    button {
+      border: none;
+    }
+
+    /* Scrollbar styles */
+    ::-webkit-scrollbar {
+      width: var(--scrollbar-width);
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: var(--clr-white);
+      border-radius: 0.625rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 0.625rem;
+      background-color: var(--clr-scrollbarThumb);
+    }
+
+    /* Selection */
+    ::selection {
+      color: var(--clr-white);
+      background-color: var(--clr-primary);
+    }
+
+    /* Focus */
+    :focus,
+    :focus-visible {
+      outline: 0.125rem solid var(--clr-black);
+      outline-offset: 0.125rem;
+    }
+
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    :active {
+      outline: none;
+    }
+
+    /* container */
+    .container {
+      max-width: 71.25rem;
+      margin: auto;
+    }
+
+    .container--px {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* Screen reader only (: */
+    .visually-hidden {
+      position: absolute;
+      left: -100vw;
+      width: 0.0625rem;
+      height: 0.0625rem;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    /* hide Scrollbar */
+    @media screen and (max-width: 40em) {
+      .scroll-hide {
+        overflow: hidden;
+      }
+    }
+
+    /* Call to action */
+    a.cta,
+    .cta {
+      font-size: 1rem;
+      font-weight: var(--fw-bold);
+      border: 0.15rem solid transparent;
+      transition: all 300ms ease-in-out;
+    }
+
+    /* Cta primary */
+    a.cta--primary,
+    .cta--primary {
+      display: inline-block;
+      background-color: var(--clr-primary);
+      color: var(--clr-white);
+      padding: 1rem 1.75rem;
+      border-radius: 0.1875rem;
+    }
+
+    a.cta--primary:hover,
+    .cta--primary:hover {
+      opacity: 0.8;
+      background-color: transparent;
+      color: var(--clr-primary);
+      border-color: currentColor;
+    }
+
+    /* Cta button */
+    .cta--btn {
+      width: 2.1875rem;
+      height: 2.1875rem;
+      background-color: transparent;
+      color: var(--clr-gray);
+      border: 0.125rem solid transparent;
+      border-color: inherit;
+      border-radius: 0.3125rem;
+      cursor: pointer;
+      transition: all 300ms ease-in-out;
+    }
+
+    .cta--btn:hover {
+      background-color: currentColor;
+    }
+
+    .cta--btn_yellow {
+      color: var(--clr-saffron);
+    }
+
+    .cta--btn_gray {
+      color: var(--clr-gray);
+    }
+
+    .cta--btn_active {
+      /* Active button */
+      background-color: var(--clr-saffron);
+      color: var(--clr-white);
+      border-color: transparent;
+    }
+
+    .cta--btn_active:hover {
+      background-color: transparent;
+      color: var(--clr-saffron);
+      border-color: currentColor;
+    }
+
+    .cta--btn-icon {
+      width: 0.875rem;
+      height: 0.6875rem;
+      stroke: currentColor;
+      transition: stroke 300ms ease-in-out;
+    }
+
+    .cta--btn:hover:not(.cta--btn_active) .cta--btn-icon {
+      stroke: var(--clr-white);
+    }
+
+    /* Cta link */
+    .cta--link {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: max-content;
+      font-size: var(--fs-medium);
+      font-weight: var(--fw-bold);
+      color: var(--clr-primary);
+      padding: 0.3rem 0.5rem;
+      margin: auto;
+      margin-top: 4rem;
+      transition: color 300ms ease-in-out;
+    }
+
+    .cta--link:hover {
+      color: var(--clr-black);
+    }
+
+    .cta--link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 0;
+      height: 100%;
+      background-color: var(--clr-lightRead);
+      transition: width 300ms ease-in-out;
+    }
+
+    .cta--link:hover::before {
+      width: 100%;
+    }
+
+    .cta--link-icon {
+      width: 1.0625rem;
+      height: 0.875rem;
+      margin-left: 0.5rem;
+      stroke: currentColor;
+    }
+
+    /* Primary subtitle*/
+    .subtitle-primary {
+      font-size: clamp(var(--fs-medium), 2vw + 0.5rem, var(--fs-bold));
+      font-weight: var(--fw-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      color: var(--clr-primary);
+      margin-bottom: clamp(0.5rem, 2vw + 0.5rem, 1.5rem);
+    }
+
+    /* Primary title */
+    .title-primary {
+      font-size: clamp(var(--fs-big), 4vw + 0.5rem, var(--fs-bigger));
+      font-weight: var(--fw-bold);
+      margin-bottom: clamp(1rem, 3vw + 0.5rem, 3rem);
+    }
+
+    /* Disabled */
+    .disabled {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    /* End Base Styles */
+
+    /* Header */
+    .header {
+      position: fixed;
+      z-index: var(--z-fixed);
+      width: 100%;
+      height: var(--header-height-m);
+      transition: all 300ms ease-in-out;
+      background-color: var(--clr-white);
+    }
+
+    @media screen and (min-width: 40em) {
+      .header {
+        height: var(--header-height-d);
+        background-color: transparent;
+      }
+    }
+
+    /* Header active */
+    .header--active {
+      transition-duration: 0ms;
+      background-color: var(--clr-white);
+    }
+
+    /* Header container */
+    .header__container {
+      height: 100%;
+      background-color: inherit;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: relative;
+      height: 100%;
+      justify-content: space-between;
+      align-items: center;
+      background-color: inherit;
+    }
+
+    /* Brand */
+    .navbar__brand {
+      font-size: clamp(var(--fs-big), 4vw + 0.5rem, 2rem);
+      font-weight: var(--fw-black);
+      color: var(--clr-black);
+    }
+
+    /* Toggle menu button */
+    .navbar__toggle-menu {
+      background-color: transparent;
+      cursor: pointer;
+    }
+
+    @media screen and (min-width: 40em) {
+      .navbar__toggle-menu {
+        display: none;
+      }
+    }
+
+    /* Hamburger */
+    .toggle-menu__hamburger {
+      position: relative;
+      width: 2.2rem;
+      padding: 0.1rem;
+    }
+
+    .hamburger__item {
+      width: 100%;
+      height: 0.25rem;
+      background-color: var(--clr-black);
+      border-radius: 1rem;
+      transition: width 500ms ease-in-out;
+    }
+
+    .hamburger__item:not(:last-child) {
+      margin-bottom: 0.31rem;
+    }
+
+    /* Hamburger animation */
+    .toggle-menu--active .hamburger__item:first-child {
+      width: 70%;
+    }
+
+    .toggle-menu--active .hamburger__item:nth-child(2) {
+      width: 90%;
+    }
+
+    .toggle-menu--active .hamburger__item:last-child {
+      width: 55%;
+    }
+
+    /* Menu */
+    @media screen and (max-width: 39.9375em) {
+
+      /* 639px */
+      .navbar__menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        background-color: var(--clr-white);
+        text-align: center;
+        padding: 2rem 0;
+        visibility: hidden;
+        transition: all 500ms ease-in-out;
+      }
+
+      /* Menu open */
+      .navbar__menu--open {
+        visibility: visible;
+        top: var(--header-height-m);
+      }
+    }
+
+    .menu__item:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+
+    @media screen and (min-width: 40em) {
+      .menu__item {
+        display: inline-block;
+      }
+
+      .menu__item:not(:last-child) {
+        margin: 0 0.6rem;
+      }
+    }
+
+    .menu__link {
+      position: relative;
+      font-weight: var(--fw-medium);
+      color: var(--clr-black);
+      padding: 0 0.3rem;
+      transition: opacity 300ms ease-in-out;
+    }
+
+    .menu__link:not(.cta)::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.4rem;
+      width: 0;
+      height: 0.25rem;
+      border-radius: 1rem;
+      background-color: var(--clr-red);
+      transition: width 300ms ease-in-out;
+    }
+
+    /* Hover effect */
+    .menu__link:hover {
+      opacity: 0.8;
+    }
+
+    .menu__link:hover::before {
+      width: 100%;
+    }
+
+    /* Active link */
+    .menu__link--active {
+      font-weight: var(--fw-bold)
+    }
+
+    .menu__link--active::before {
+      width: 100%;
+    }
+
+    /* Overlay */
+    .header__overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -10000;
+      background-color: var(--clr-overlay);
+      visibility: hidden;
+      opacity: 0;
+      transition: all 500ms ease-in-out;
+    }
+
+    @media screen and (max-width: 40em) {
+      .header__overlay--open {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    /* Main */
+    .main {
+      position: relative;
+      padding-top: var(--header-height-m);
+    }
+
+    @media screen and (min-width: 40em) {
+      .main {
+        padding-top: var(--header-height-d);
+      }
+    }
+
+    /* Hero section */
+    .hero {
+      position: relative;
+      height: calc(100vh - var(--header-height-m));
+      background-color: var(--clr-hero);
+    }
+
+    @media screen and (min-width: 40em) {
+      .hero {
+        height: calc(100vh - var(--header-height-d));
+        background-color: transparent;
+      }
+    }
+
+    /* Hero container */
+    .hero__container {
+      height: 100%;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @media screen and (min-width: 40em) {
+      .hero__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+      }
+    }
+
+    .hero__text {
+      width: min(23.125rem, 100%);
+    }
+
+    .hero__title {
+      font-size: clamp(2rem, 6vw + 0.5rem, var(--fs-biggest));
+      margin-bottom: 0.8rem;
+    }
+
+    .hero__title-underline {
+      border-bottom: 0.25rem solid var(--clr-red);
+    }
+
+    .hero__paragraph {
+      margin-bottom: 1rem;
+    }
+
+    .hero__image-wrapper {
+      display: none;
+    }
+
+    @media screen and (min-width: 40em) {
+      .hero__image-wrapper {
+        display: block;
+      }
+    }
+
+    .hero__image {
+      width: 100%;
+    }
+
+    /* Partners Section */
+    .partners {
+      text-align: center;
+    }
+
+    .partners__title {
+      font-size: clamp(var(--fs-medium), 2vw + 0.5rem, var(--fs-bold));
+      font-weight: var(--fw-regular);
+      color: var(--clr-gray);
+      margin-bottom: clamp(1rem, 3vw + 0.5rem, 2.1875rem);
+    }
+
+    .partners__wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr));
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .partners__item {
+      transition: none 300ms ease-in-out;
+      transition-property: transform, opacity;
+    }
+
+    .partners__item:hover {
+      transform: translateY(-0.1rem);
+      opacity: 0.8;
+    }
+
+    .partner__img {
+      width: 8.125rem;
+      height: 3.125rem;
+      object-fit: contain;
+    }
+
+    /* Features */
+    /* .features {} */
+
+    /* Features container */
+    .features__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(30rem, 100%), 1fr));
+      gap: 2rem;
+    }
+
+    .features__text {
+      max-width: 20.625rem;
+    }
+
+    .features__wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(14.5rem, 1fr));
+      gap: 2rem;
+    }
+
+    .feature__icon-wrapper {
+      width: 4.375rem;
+      height: 4.375rem;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0.625rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature__icon {
+      width: 2.4375rem;
+      height: 2.4375rem;
+      fill: none;
+    }
+
+    .feature--1 .feature__icon-wrapper {
+      background-color: var(--clr-lightBlue);
+    }
+
+    .feature--1 .feature__icon {
+      stroke: var(--clr-primary);
+    }
+
+    .feature--2 .feature__icon-wrapper {
+      background-color: var(--clr-lightRead);
+    }
+
+    .feature--2 .feature__icon {
+      stroke: var(--clr-red);
+      fill: var(--clr-red);
+    }
+
+    .feature--3 .feature__icon-wrapper {
+      background-color: var(--clr-lightTurquoise);
+    }
+
+    .feature--3 .feature__icon {
+      stroke: var(--clr-turquoise);
+    }
+
+    .feature--4 .feature__icon-wrapper {
+      background-color: var(--clr-lightSaffron);
+    }
+
+    .feature--4 .feature__icon {
+      stroke: var(--clr-saffron);
+    }
+
+    .feature__title {
+      font-size: var(--fs-big);
+      font-weight: var(--fw-medium);
+      margin-bottom: 0.625rem;
+    }
+
+    .feature__paragraph {
+      color: var(--clr-lightGray);
+    }
+
+    /* Portfolio */
+    .portfolio {
+      text-align: center;
+    }
+
+    .portfolio__wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(21.875rem, 100%), 1fr));
+      justify-content: center;
+      gap: 1.8rem;
+    }
+
+    .portfolio__card {
+      position: relative;
+      border-radius: 1.25rem;
+    }
+
+    .card__image {
+      width: 100%;
+      height: 25rem;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+
+    .card__content {
+      margin-top: 1.5rem;
+      text-align: left;
+    }
+
+    .card__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .card__title {
+      font-size: var(--fs-big);
+    }
+
+    .card__description {
+      padding-right: 1rem;
+      color: var(--clr-lightGray);
+    }
+
+    .portfolio__cta {
+      margin-top: clamp(1rem, 5vw + 0.5rem, 3rem);
+    }
+
+    /* Testimonial */
+    .testimonial {
+      position: relative;
+    }
+
+    .testimonial::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('https://raw.githubusercontent.com/alawe45/Html-Css-Js-game-agency-project/d88374b98d5815d165f08b61f6678358a6c06fd0/images/map.svg');
+      background-position: center top;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0.1;
+      box-shadow: 0 11.25rem 3.75rem var(--clr-body) inset;
+    }
+
+    .testimonial__container {
+      position: relative;
+    }
+
+    .testimonial__header {
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial__text {
+      margin-right: 1rem;
+    }
+
+    .testimonial__controls {
+      gap: 0.3rem;
+    }
+
+    .testimonial__wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial__slider {
+      width: 300%;
+      gap: clamp(0.1rem, 2vw, 1rem);
+      transition: all 500ms ease-in-out;
+    }
+
+    .testimonial__slide {
+      position: relative;
+      max-width: 28.75rem;
+      background-color: var(--clr-white);
+      border-radius: 0.625rem;
+      padding: 1.8125rem 1.5rem;
+    }
+
+    .testimonial__slide-header {
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.1rem;
+    }
+
+    .testimonial__slide-data {
+      align-items: center;
+      margin-right: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .testimonial__slide-img {
+      width: 3.875rem;
+      height: 3.875rem;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial__slide-name {
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial__slide-subtitle {
+      color: var(--clr-lightGray);
+    }
+
+    .testimonial__slide-stars {
+      padding: 1rem 0 0 0;
+    }
+
+    .testimonial__description {
+      font-size: 1rem;
+    }
+
+    .testimonial__footer {
+      text-align: center;
+    }
+
+    /* Team */
+    /* .team {
+} */
+
+    .team__wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 21.875rem), 1fr));
+      gap: 1.5rem;
+    }
+
+    .team__member {
+      position: relative;
+      border-radius: 1.25rem;
+    }
+
+    .member__image {
+      width: 100%;
+      height: 26.25rem;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+
+    .member__info {
+      padding: 1.5rem 0 1rem;
+      text-align: center;
+    }
+
+    .member__title {
+      font-size: var(--fs-big);
+      font-weight: var(--fw-medium);
+      margin-bottom: 0.5rem;
+    }
+
+    .member__designation {
+      font-size: var(--fs-medium);
+      color: var(--clr-lightGray);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--clr-white);
+      padding-top: clamp(2rem, 10vw, 5rem);
+      padding-bottom: clamp(2rem, 10vw, 5rem);
+    }
+
+    .footer__container {
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer__header {
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .footer__inner {
+      flex-wrap: wrap;
+      gap: 1rem clamp(2rem, 7vw, 6.25rem);
+    }
+
+    .footer__brand {
+      display: inline-block;
+      width: max-content;
+      font-size: clamp(var(--fs-big), 4vw + 0.5rem, 2rem);
+      font-weight: var(--fw-black);
+      color: var(--clr-black);
+    }
+
+    .footer__social-icons {
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .social-icons__link {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 3.125rem;
+      height: 3.125rem;
+      font-size: 1.75rem;
+      background-color: var(--clr-social-icon);
+      color: var(--clr-gray);
+      border-radius: 0.625rem;
+      transition: none 300ms ease-in-out;
+      transition-property: opacity, color, box-shadow;
+    }
+
+    .social-icons__link--dribbble:hover {
+      color: var(--clr-dribbble);
+      border-color: currentColor;
+    }
+
+    .social-icons__link--facebook:hover {
+      color: var(--clr-facebook);
+      border-color: currentColor;
+    }
+
+    .social-icons__link--twitter:hover {
+      color: var(--clr-twitter);
+      border-color: currentColor;
+    }
+
+    .social-icons__link--youtube:hover {
+      color: var(--clr-youtube);
+      border-color: currentColor;
+    }
+
+    .social-icons__link:hover {
+      opacity: 0.8;
+    }
+
+    .list__title {
+      font-size: var(--fs-bold);
+      font-weight: var(--fw-semiBold);
+      margin-bottom: clamp(1rem, 5vw, 1.5rem);
+    }
+
+    .list__item:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+
+    .list__link {
+      display: inline-block;
+      font-weight: var(--fw-regular);
+      font-size: var(--fs-medium);
+      color: var(--clr-lightGray);
+      transition: transform 300ms ease-in-out;
+    }
+
+    .list__link:hover {
+      transform: translateX(0.2rem);
+    }
+
+    .footer__text {
+      color: var(--clr-gray);
+    }
+
+    /* :D */
+
+    .hero__title {
+
+      color: lightseagreen;
+    }
+
+    /* @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Josefin+Slab&display=swap"); */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+
+
+    .process {
+      width: 100%;
+      padding: 0 15px;
+      text-align: center;
+    }
+
+    .process__item {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      text-align: center;
+      position: relative;
+      padding: 15px 35px;
+      transition: 0.4s ease-in-out;
+    }
+
+    .process__item:hover {
+      background: rgb(203, 236, 236);
+    }
+
+    .process__item:hover .process__number {
+      transform: translateY(5px);
+      color: #003c71;
+    }
+
+    .process__number {
+      font-size: 90px;
+      -webkit-text-stroke: 1px black;
+      display: block;
+      color: transparent;
+      font-family: "Roboto Condensed";
+      font-weight: 700;
+      transition: 0.4s ease-in-out;
+    }
+
+    .process__title {
+      display: block;
+      font-family: "Roboto Condensed";
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      font-size: 35px;
+      color: black;
+      /* text-transform: uppercase; */
+      margin-top: 30px;
+    }
+
+    .process__subtitle {
+      display: block;
+      font-family: "Josefin Slab";
+      font-size: 20px;
+      color: #8c8c8c;
+      margin-top: 30px;
+      line-height: 1.5;
+    }
+
+    @media (min-width: 768px) {
+      .process {
+        display: inline-block;
+      }
+
+      .process__item {
+        width: 49%;
+        display: inline-block;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .process {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .process__item {
+        width: 100%;
+      }
+
+      .process__item:not(:last-of-type)::after {
+        content: "";
+        width: 1px;
+        height: 75%;
+        background: #8c8c8c;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        opacity: 0.2;
+        transform: translateY(-50%);
+      }
+    }
+
+
+
+    .animated-1 {
+      --webkit-animation: .2s ease-in-out 0.2s both;
+    }
+
+    .animated-2 {
+      --webkit-animation: .1s ease-in-out 0.3s both;
+    }
+
+    .animated-3 {
+      --webkit-animation: .1s ease-in-out .35s both;
+    }
+
+    .animated-4 {
+      --webkit-animation: .1s ease-in-out .4s both;
+    }
+
+    .animated-5 {
+      --webkit-animation: .1s ease-in-out .45s both;
+    }
+
+    .animated-6 {
+      --webkit-animation: .1s ease-in-out .5s both;
+    }
+
+    .animated-7 {
+      --webkit-animation: .1s ease-in-out .54s both;
+    }
+
+    .animated-8 {
+      --webkit-animation: .1s ease-in-out .57s both;
+    }
+
+    .animated-9 {
+      --webkit-animation: .1s ease-in-out .6s both;
+    }
+
+    .animated-10 {
+      --webkit-animation: .1s ease-in-out .63s both;
+    }
+
+    .animated-11 {
+      --webkit-animation: .3s ease-in-out .85s both;
+    }
+
+    .animated-12 {
+      --webkit-animation: 1.5s ease-in-out 1.2s both;
+    }
+
+    @-webkit-keyframes flash {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transition-timing-function: cubic-bezier(.58, .05, .63, 1.27);
+      }
+    }
+
+    .flash {
+      -webkit-animation-name: flash;
+      animation-name: flash;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <!-- <header >
+        <a href="#">
+        <img src="https://featurepreneur.com/static/img/logo.png" id="big-logo"></a>
+  
+        </header> -->
+  <section class="testimonial">
+    <div class="description">
+      <div class="row">
+        <div class="column">
+          <img src="https://featurepreneur.com/static/img/logo.png" id="big-logo" style="margin-left: -20rem;">
+
+
+
+          <div class="hero__text">
+            <h2 class="hero__title" style="font-size:8rem; ">CIDORA
+
+              <!-- <span class="hero__title-underline">ames.</span> -->
+            </h2>
+
+          </div>
+
+
+
+
+
+          <h2>The best place to build, test and discover new ideas.</h>
+            <br><br><br><br>
+            <button class="signup" style="margin-left: 10rem;">Register Now !</button>
+
+        </div>
+
+        <div class="column">
+          <div class="editor">
+            <div class="editor-template">
+              <div class="title">
+                <div><i class="fa fa-gear"></i></div>
+                <div><code>HTML</code></div>
+                <div><i class='fas fa-angle-down'></i></div>
+              </div>
+              <div class="code">
+                <code> <span class="burnt">&#60;div </span> <span class="yellow">class</span>= <span class="green">"rectangle"</span> <span class="burnt">&it;&gt; &#60/div&it;&gt;</span></code>
+              </div>
+            </div>
+            <div class="editor-template">
+              <div class="title">
+                <div><i class="fa fa-gear"></i></div>
+                <div><code>SCSS</code></div>
+                <div><i class='fas fa-angle-down'></i></div>
+              </div>
+              <div class="code">
+                <code> <span class="yellow">.rect</span> &#10100; <br>
+         <span class="purple">background</span>: <span class="yellow">linear-gradient</span>( <span class="orange">-119deg</span>,
+        <span class="yellow">$gray</span> <span class="orange">0%</span>,
+        <span class="yellow">$dark-gray</span> <span class="yellow">100%</span>);
+        <br>
+        &#x2775;
+        </code>
+              </div>
+            </div>
+            <div class="editor-template">
+              <div class="title">
+                <div><i class="fa fa-gear"></i></div>
+                <div><code>JS</code></div>
+                <div><i class='fas fa-angle-down'></i></div>
+              </div>
+              <div class="code">
+                <code> <span class="yellow">var</span> <span class="blue">colors</span> = [<span class="green">"#74B087", "#DE7300", "#74B087"</span>];
+      
+         <!-- <span class="yellow">function</span> <span class="blue">animate()</span> {}; -->
+        </code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img src="https://static.codepen.io/assets/packs/lines-2-4e66616a5ef291c3566a7ddfe1ffaaa8.svg" id="right">
+    </div>
+    <img src="https://static.codepen.io/assets/packs/lines-3-4541e35a1939230404d773f7eeddcc9b.svg" id="down">
+    <div class="three-main">
+      <!-- <div class="three-item">
+        <img src="https://static.codepen.io/assets/packs/icon-build-0f21c66ed03bfb36c597636d27ca621e.svg" id="codepen-svg">
+        <div class="text-box">
+        <h1>Build & Test</h1>
+        <p>Get work done quicker by building out <strong>entire projects</strong> or isolating code to <strong>test features and animations</strong>. Want to keep it all under wraps? <a href="#"><strong>Upgrade to a</strong></a> <span class="pro">PRO</span> account to keep your work private.</p>
+        <button class="grey-button">Try the Editor</button>
+        </div>
+        </div>
+        <div class="three-item">
+        <img src="https://static.codepen.io/assets/packs/icon-learn-b1311620e99cea826f259aa2f7750940.svg" id="codepen-svg">
+        <div class="text-box">
+        <h1>Learn and Discover</h1>
+        <p>Just starting out? Browsing, forking, and playing with Pens is a great way to understand how they were built and how code works. Teaching a class? <a href="#">Professor mode</a> lets your students to see and comment on real-time Pen updates.</p>
+        <button class="grey-button">Learn More</button>
+        </div>
+        </div>
+        <div class="three-item">
+        <img src="https://static.codepen.io/assets/packs/icon-share-910c683bbac21bf41fcf9aab64ebc957.svg" id="codepen-svg">
+        <div class="text-box">
+        <h1>Learn and Discover</h1>
+        <p>Become a part of the most active front-end community in the world by sharing work. Presenting at a conference? Show your code directly in the browser with <a href="#">Presentation Mode</a>.</p>
+        <button class="grey-button">Explore Popular</button>
+        </div>
+        </div> -->
+    </div>
+    </div>
+
+    </div>
+
+  </section>
+
+  <br><br><br><br><br><br>
+  <section class="features">
+    <div class="features__container container container--px">
+      <div class="features__text">
+        <h1 class="features__subtitle subtitle-primary">Team</h1>
+        <h2 class="features__title title-primary" style="color: lightseagreen;">Who Can Join?</h2>
+
+      </div>
+
+      <div class="features__feature feature--3">
+        <div class="feature__icon-wrapper flex">
+          <svg class="feature__icon" viewBox="0 0 39 39" aria-hidden="true" focusable='false'>
+            <path
+              d="M23.3889 15.6111H32.6522C33.315 15.6111 33.9668 15.7806 34.5457 16.1033C35.1246 16.426 35.6115 16.8914 35.96 17.4552C36.3085 18.0189 36.5071 18.6624 36.537 19.3245C36.5669 19.9867 36.4271 20.6454 36.1308 21.2383L29.3253 34.8494C29.0022 35.4959 28.5055 36.0396 27.8907 36.4194C27.2759 36.7993 26.5674 37.0003 25.8447 37H18.0339C17.7169 37 17.4 36.9611 17.0908 36.8833L9.77778 35.0556M23.3889 15.6111V5.88889C23.3889 4.85749 22.9792 3.86834 22.2499 3.13903C21.5206 2.40972 20.5314 2 19.5 2H19.3153C18.3431 2 17.5556 2.7875 17.5556 3.75972C17.5556 5.14806 17.1453 6.50528 16.3733 7.66028L9.77778 17.5556V35.0556M23.3889 15.6111H19.5M9.77778 35.0556H5.88889C4.85749 35.0556 3.86834 34.6458 3.13903 33.9165C2.40972 33.1872 2 32.1981 2 31.1667V19.5C2 18.4686 2.40972 17.4794 3.13903 16.7501C3.86834 16.0208 4.85749 15.6111 5.88889 15.6111H10.75"
+              stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <h3 class="feature__title">Entry Fee of 1000 INR*</h3>
+        <p class="feature__paragraph">
+          800 INR will be converted as Tact Credits where you can use them during the program. You can use your existing
+          credits as well
+        </p>
+      </div>
+
+
+      <br><br><br><br><br><br>
+
+
+
+      <div class="features__feature feature--2">
+        <div class="feature__icon-wrapper flex">
+          <svg class="feature__icon" viewBox="0 0 39 39" aria-hidden="true" focusable='false'>
+            <path
+              d="M22.6749 10.8681C21.9916 10.8681 21.3236 11.0707 20.7555 11.4504C20.1874 11.83 19.7446 12.3696 19.4831 13.0008C19.2216 13.6321 19.1532 14.3268 19.2865 14.9969C19.4198 15.6671 19.7488 16.2827 20.232 16.7659C20.6337 17.1676 21.1283 17.4641 21.672 17.629C22.2157 17.794 22.7917 17.8223 23.3489 17.7114C23.9062 17.6006 24.4275 17.354 24.8667 16.9936C25.3059 16.6331 25.6494 16.17 25.8668 15.6451C26.0842 15.1201 26.1688 14.5497 26.1131 13.9843C26.0575 13.4189 25.8632 12.8759 25.5475 12.4035C25.2319 11.9311 24.8046 11.5438 24.3035 11.276C23.8024 11.0082 23.243 10.8681 22.6749 10.8681ZM23.8473 15.5043C23.6942 15.6685 23.5097 15.8003 23.3046 15.8916C23.0996 15.983 22.8782 16.0321 22.6537 16.0361C22.4293 16.04 22.2063 15.9988 21.9982 15.9147C21.79 15.8306 21.6009 15.7055 21.4422 15.5467C21.2834 15.388 21.1583 15.1989 21.0742 14.9907C20.9901 14.7826 20.9489 14.5596 20.9528 14.3352C20.9568 14.1107 21.0059 13.8893 21.0973 13.6843C21.1886 13.4792 21.3204 13.2947 21.4846 13.1416C21.8041 12.8392 22.2278 12.6714 22.6677 12.6731C23.1077 12.6748 23.5301 12.8457 23.8473 13.1505C24.1603 13.464 24.3362 13.8889 24.3362 14.3319C24.3362 14.7749 24.1603 15.1998 23.8473 15.5132V15.5043Z"
+              stroke-width="0.5" />
+            <path
+              d="M5.94897 29.7872L2.52087 33.2109C2.35298 33.3787 2.25867 33.6064 2.25867 33.8439C2.25867 34.0813 2.35298 34.309 2.52087 34.4769C2.68876 34.6448 2.91646 34.7391 3.15389 34.7391C3.39132 34.7391 3.61902 34.6448 3.7869 34.4769L7.215 31.0488C7.3823 30.8815 7.47628 30.6546 7.47628 30.418C7.47628 30.1814 7.3823 29.9545 7.215 29.7872C7.04771 29.6199 6.82081 29.5259 6.58421 29.5259C6.34762 29.5259 6.12072 29.6199 5.95343 29.7872H5.94897Z"
+              stroke-width="0.5" />
+            <path
+              d="M35.7363 1.26139C35.6399 1.16492 35.5227 1.09185 35.3936 1.0478C35.2646 1.00374 35.1271 0.989887 34.9919 1.00729L26.4149 2.05935C25.2342 2.20954 24.1367 2.74733 23.2944 3.58839L20.5618 6.32106L15.939 6.01793C14.3202 5.90167 12.7203 6.42326 11.4811 7.47119L5.09743 12.8429C4.97512 12.9464 4.88297 13.081 4.83067 13.2325C4.77838 13.384 4.76787 13.5467 4.80026 13.7037C4.83266 13.8606 4.90674 14.0059 5.01474 14.1243C5.12273 14.2427 5.26063 14.3298 5.41394 14.3764L10.8525 16.0125L9.13626 17.751C9.05336 17.8338 8.9876 17.9322 8.94273 18.0404C8.89786 18.1486 8.87477 18.2647 8.87477 18.3818C8.87477 18.499 8.89786 18.615 8.94273 18.7232C8.9876 18.8315 9.05336 18.9298 9.13626 19.0126L9.35915 19.2355L6.60419 20.7289C6.3008 20.8953 6.04032 21.1301 5.8434 21.4146C5.64647 21.6992 5.5185 22.0257 5.46962 22.3683C5.42075 22.7108 5.4523 23.0601 5.5618 23.3883C5.67129 23.7166 5.85571 24.0149 6.10045 24.2595L12.7293 30.8973C13.1452 31.3145 13.7094 31.5501 14.2985 31.5526C14.4058 31.5527 14.5131 31.5452 14.6194 31.5303C14.964 31.4827 15.2926 31.355 15.579 31.1576C15.8654 30.9603 16.1017 30.6986 16.2688 30.3935L17.7711 27.6564L17.994 27.8793C18.0768 27.9622 18.1752 28.028 18.2834 28.0728C18.3916 28.1177 18.5077 28.1408 18.6248 28.1408C18.742 28.1408 18.858 28.1177 18.9662 28.0728C19.0745 28.028 19.1728 27.9622 19.2556 27.8793L20.9897 26.1452L22.6258 31.5838C22.6722 31.7374 22.7592 31.8757 22.8777 31.9839C22.9962 32.0922 23.1417 32.1665 23.2989 32.199C23.3597 32.2052 23.4209 32.2052 23.4817 32.199C23.6115 32.1991 23.7399 32.1708 23.8577 32.1161C23.9755 32.0615 24.0799 31.9817 24.1637 31.8825L29.5399 25.5077C30.5883 24.2688 31.1099 22.6686 30.9932 21.0499L30.6767 16.436L33.4093 13.7033C34.2488 12.8604 34.7849 11.763 34.9339 10.5828L35.9904 2.00585C36.0078 1.87059 35.994 1.73314 35.9499 1.60408C35.9059 1.47502 35.8328 1.35778 35.7363 1.26139ZM7.50468 13.1505L12.6357 8.82193C13.5252 8.08059 14.6683 7.71447 15.8231 7.80107L18.8856 8.01059L12.288 14.5859L7.50468 13.1505ZM14.6952 29.5332C14.662 29.5937 14.6153 29.6456 14.5586 29.685C14.5019 29.7243 14.4369 29.75 14.3686 29.7599C14.3003 29.7698 14.2307 29.7638 14.1651 29.7422C14.0996 29.7207 14.0399 29.6842 13.9909 29.6357L7.35311 23.0069C7.30459 22.9578 7.26812 22.8982 7.24656 22.8326C7.22501 22.7671 7.21896 22.6974 7.2289 22.6291C7.23884 22.5609 7.26449 22.4958 7.30384 22.4391C7.34318 22.3825 7.39515 22.3357 7.45564 22.3025L10.6475 20.5506L16.4427 26.3458L14.6952 29.5332ZM29.1966 21.1747C29.276 22.3288 28.9035 23.4685 28.158 24.3531L23.8472 29.493L22.4118 24.7098L29.005 18.1166L29.1966 21.1747ZM33.1463 10.3599C33.0496 11.1492 32.6918 11.8835 32.1299 12.4462L18.6181 25.9847L11.013 18.3796L24.5426 4.84997C25.1053 4.28805 25.8396 3.9303 26.6289 3.83358L34.1003 2.89742L33.1463 10.3599Z"
+              stroke-width="0.5" />
+            <path
+              d="M6.93408 35.7385C7.01689 35.8214 7.11522 35.8871 7.22345 35.932C7.33169 35.9769 7.4477 36 7.56487 36C7.68204 36 7.79805 35.9769 7.90629 35.932C8.01453 35.8871 8.11286 35.8214 8.19566 35.7385L10.0278 33.884C10.1951 33.7167 10.2891 33.4898 10.2891 33.2532C10.2891 33.0166 10.1951 32.7897 10.0278 32.6224C9.86055 32.4551 9.63364 32.3611 9.39705 32.3611C9.16046 32.3611 8.93356 32.4551 8.76627 32.6224L6.91179 34.4769C6.83034 34.5612 6.76631 34.6606 6.72334 34.7697C6.68037 34.8787 6.65932 34.9951 6.66139 35.1123C6.66346 35.2295 6.68861 35.3451 6.7354 35.4525C6.78219 35.56 6.84971 35.6571 6.93408 35.7385Z"
+              stroke-width="0.5" />
+            <path
+              d="M1.88783 30.3267C2.12391 30.3257 2.34995 30.2311 2.51639 30.0637L4.37086 28.2092C4.49845 28.0366 4.55948 27.8237 4.54276 27.6098C4.52603 27.3958 4.43267 27.195 4.27981 27.0443C4.12696 26.8936 3.92487 26.8031 3.71066 26.7895C3.49646 26.7758 3.28451 26.8399 3.11374 26.9699L1.25927 28.8244C1.13534 28.9491 1.05102 29.1076 1.01693 29.28C0.982835 29.4525 1.00048 29.6312 1.06766 29.7936C1.13483 29.9561 1.24853 30.0951 1.39446 30.1931C1.54039 30.2911 1.71204 30.3438 1.88783 30.3445V30.3267Z"
+              stroke-width="0.5" />
+          </svg>
+        </div>
+        <h3 class="feature__title">Age of 13 - 16</h3>
+
+
+      </div>
+      <br><br><br><br><br><br>
+
+      <div class="features__wrapper">
+        <div class="features__feature feature--1">
+          <div class="feature__icon-wrapper flex">
+            <svg class="feature__icon" viewBox="0 0 39 39" aria-hidden="true" focusable='false'>
+              <path
+                d="M2 21.4444H37M15.125 29.2222L13.6667 35.0556L11.7222 37H27.2778L25.3333 35.0556L23.875 29.2222H15.125ZM5.88889 29.2222H33.1111C34.1425 29.2222 35.1317 28.8125 35.861 28.0832C36.5903 27.3539 37 26.3647 37 25.3333V5.88889C37 4.85749 36.5903 3.86834 35.861 3.13903C35.1317 2.40972 34.1425 2 33.1111 2H5.88889C4.85749 2 3.86834 2.40972 3.13903 3.13903C2.40972 3.86834 2 4.85749 2 5.88889V25.3333C2 26.3647 2.40972 27.3539 3.13903 28.0832C3.86834 28.8125 4.85749 29.2222 5.88889 29.2222Z"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+
+          <h3 class="feature__title">Can participate as an individual or a team</h3>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <br><br><br><br><br><br>
+  <div class="portfolio__container container container--px" style="text-align: center;">
+    <div class="portfolio__text">
+      <h1 class="portfolio__subtitle subtitle-primary">Steps</h1>
+      <h2 class="portfolio__title title-primary" style="color: lightseagreen;">What To Do ?</h2>
+    </div>
+  </div>
+  <ul class="process">
+    <li class="process__item">
+      <span class="process__number">1</span>
+      <span class="process__title">
+        Come up with an Idea</span>
+
+    </li>
+
+    <li class="process__item">
+      <span class="process__number">2</span>
+      <span class="process__title">Create an app</span>
+
+    </li>
+
+    <li class="process__item">
+      <span class="process__number">3</span>
+      <span class="process__title">Publish it</span>
+
+    </li>
+
+    <li class="process__item">
+      <span class="process__number">4</span>
+      <span class="process__title">Post daily progress on LinkedIn</span>
+
+    </li>
+
+    <li class="process__item">
+      <span class="process__number">5</span>
+      <span class="process__title">The app with more comment & likes will win </span>
+
+    </li>
+  </ul>
+
+  <br><br><br><br><br>
+  <div class="portfolio__container container container--px" style="text-align: center;">
+    <div class="portfolio__text">
+      <h1 class="portfolio__subtitle subtitle-primary">Winner</h1>
+      <h2 class="portfolio__title title-primary" style="color: lightseagreen;">WINNER GETS 25,000 INR</h2>
+    </div>
+  </div>
+
+  <div class="trophy" style="margin-left: 52.5rem;">
+
+    <svg version="1.1" id="Layer_1" viewBox="3.4 0 189.9 200" height="200px" enable-background="new 3.4 0 189.9 200"
+      xml:space="preserve">
+      <g id="rays" class="animated">
+        <g id="XMLID_89_">
+          <g id="XMLID_91_" class="animated-1 flash">
+            <path id="XMLID_139_" fill="#189DA8" d="M98.5,21.1c-0.8,0-1.5-0.7-1.5-1.5V2c0-0.8,0.7-1.5,1.5-1.5S100,1.2,100,2v17.6
+              C100,20.4,99.3,21.1,98.5,21.1z" />
+          </g>
+          <g id="XMLID_90_" class="animated-6 flash">
+            <path id="XMLID_138_" fill="#189DA8" d="M98.5,199.5c-0.8,0-1.5-0.7-1.5-1.5v-17.6c0-0.8,0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5V198
+              C100,198.8,99.3,199.5,98.5,199.5z" />
+          </g>
+        </g>
+        <g id="XMLID_86_">
+          <g id="XMLID_88_" class="animated-10 flash">
+            <path id="XMLID_137_" fill="#189DA8" d="M50.9,36.4c-0.5,0-0.9-0.2-1.2-0.6L39.3,21.6c-0.5-0.7-0.3-1.6,0.3-2.1
+              c0.7-0.5,1.6-0.3,2.1,0.3l10.4,14.3c0.5,0.7,0.3,1.6-0.3,2.1C51.5,36.3,51.2,36.4,50.9,36.4z" />
+          </g>
+          <g id="XMLID_87_" class="animated-5 flash">
+            <path id="XMLID_136_" fill="#189DA8" d="M155.8,180.8c-0.5,0-0.9-0.2-1.2-0.6l-10.4-14.3c-0.5-0.7-0.3-1.6,0.3-2.1
+              c0.7-0.5,1.6-0.3,2.1,0.3l10.4,14.3c0.5,0.7,0.3,1.6-0.3,2.1C156.4,180.7,156.1,180.8,155.8,180.8z" />
+          </g>
+        </g>
+        <g id="XMLID_83_">
+          <g id="XMLID_85_" class="animated-9 flash">
+            <path id="XMLID_135_" fill="#189DA8" d="M21.7,76.6c-0.2,0-0.3,0-0.5-0.1L4.5,71.1c-0.8-0.3-1.2-1.1-0.9-1.9s1.1-1.2,1.9-0.9
+              l16.8,5.4c0.8,0.3,1.2,1.1,0.9,1.9C22.9,76.2,22.3,76.6,21.7,76.6z" />
+          </g>
+          <g id="XMLID_84_" class="animated-4 flash">
+            <path id="XMLID_134_" fill="#189DA8" d="M191.4,131.8c-0.2,0-0.3,0-0.5-0.1l-16.8-5.4c-0.8-0.3-1.2-1.1-0.9-1.9s1.1-1.2,1.9-0.9
+              l16.8,5.4c0.8,0.3,1.2,1.1,0.9,1.9C192.6,131.4,192,131.8,191.4,131.8z" />
+          </g>
+        </g>
+        <g id="XMLID_80_">
+          <g id="XMLID_82_" class="animated-8 flash">
+            <path id="XMLID_133_" fill="#189DA8" d="M4.9,131.8c-0.6,0-1.2-0.4-1.4-1c-0.3-0.8,0.2-1.6,0.9-1.9l16.8-5.4
+              c0.8-0.2,1.6,0.2,1.9,0.9c0.3,0.8-0.2,1.6-0.9,1.9l-16.8,5.4C5.2,131.7,5.1,131.8,4.9,131.8z" />
+          </g>
+          <g id="XMLID_81_" class="animated-3 flash">
+            <path id="XMLID_132_" fill="#189DA8" d="M174.6,76.6c-0.6,0-1.2-0.4-1.4-1c-0.3-0.8,0.2-1.6,0.9-1.9l16.8-5.4
+              c0.8-0.3,1.6,0.2,1.9,0.9c0.3,0.8-0.2,1.6-0.9,1.9l-16.8,5.4C174.9,76.6,174.8,76.6,174.6,76.6z" />
+          </g>
+        </g>
+        <g id="XMLID_76_">
+          <g id="XMLID_79_" class="animated-7 flash">
+            <path id="XMLID_131_" fill="#189DA8" d="M40.5,180.8c-0.3,0-0.6-0.1-0.9-0.3c-0.7-0.5-0.8-1.4-0.3-2.1l10.4-14.3
+              c0.5-0.7,1.4-0.8,2.1-0.3c0.7,0.5,0.8,1.4,0.3,2.1l-10.4,14.3C41.4,180.6,41,180.8,40.5,180.8z" />
+          </g>
+          <g id="XMLID_77_" class="animated-2 flash">
+            <path id="XMLID_130_" fill="#189DA8" d="M145.4,36.4c-0.3,0-0.6-0.1-0.9-0.3c-0.7-0.5-0.8-1.4-0.3-2.1l10.4-14.3
+              c0.5-0.7,1.4-0.8,2.1-0.3c0.7,0.5,0.8,1.4,0.3,2.1l-10.4,14.3C146.3,36.2,145.9,36.4,145.4,36.4z" />
+          </g>
+        </g>
+        <g id="XMLID_71_">
+          <g id="XMLID_74_" class="animated-11 flash">
+            <path id="XMLID_129_" fill="#189DA8" d="M70.4,186.8c-0.2,0-0.3,0-0.5-0.1c-0.8-0.3-1.2-1.1-0.9-1.9l2.3-7.2
+              c0.3-0.8,1.1-1.2,1.9-0.9s1.2,1.1,0.9,1.9l-2.3,7.2C71.6,186.4,71,186.8,70.4,186.8z" />
+          </g>
+          <g id="XMLID_73_" class="animated-11 flash">
+            <path id="XMLID_128_" fill="#189DA8" d="M123.4,23.8c-0.2,0-0.3,0-0.5-0.1c-0.8-0.3-1.2-1.1-0.9-1.9l2.5-7.7
+              c0.3-0.8,1.1-1.2,1.9-0.9s1.2,1.1,0.9,1.9l-2.5,7.7C124.6,23.4,124,23.8,123.4,23.8z" />
+          </g>
+        </g>
+        <g id="XMLID_67_">
+          <g id="XMLID_70_" class="animated-11 flash">
+            <path id="XMLID_127_" fill="#189DA8" d="M25.5,154.2c-0.5,0-0.9-0.2-1.2-0.6c-0.5-0.7-0.3-1.6,0.3-2.1l6.1-4.5
+              c0.7-0.5,1.6-0.3,2.1,0.3c0.5,0.7,0.3,1.6-0.3,2.1l-6.1,4.5C26.1,154.1,25.8,154.2,25.5,154.2z" />
+          </g>
+          <g id="XMLID_68_" class="animated-11 flash">
+            <path id="XMLID_126_" fill="#189DA8" d="M164.2,53.4c-0.5,0-0.9-0.2-1.2-0.6c-0.5-0.7-0.3-1.6,0.3-2.1l6.5-4.7
+              c0.7-0.5,1.6-0.3,2.1,0.3c0.5,0.7,0.3,1.6-0.3,2.1l-6.5,4.7C164.8,53.4,164.5,53.4,164.2,53.4z" />
+          </g>
+        </g>
+        <g id="XMLID_58_">
+          <g id="XMLID_61_" class="animated-11 flash">
+            <path id="XMLID_123_" fill="#189DA8" d="M31.3,53.3c-0.3,0-0.6-0.1-0.9-0.3l-6-4.3c-0.7-0.5-0.8-1.4-0.3-2.1
+              c0.5-0.7,1.4-0.8,2.1-0.3l6,4.3c0.7,0.5,0.8,1.4,0.3,2.1C32.2,53.1,31.8,53.3,31.3,53.3z" />
+          </g>
+          <g id="XMLID_59_" class="animated-11 flash">
+            <path id="XMLID_122_" fill="#189DA8" d="M170.6,154.5c-0.3,0-0.6-0.1-0.9-0.3l-6.4-4.7c-0.7-0.5-0.8-1.4-0.3-2.1
+              c0.5-0.7,1.4-0.8,2.1-0.3l6.4,4.7c0.7,0.5,0.8,1.4,0.3,2.1C171.5,154.3,171.1,154.5,170.6,154.5z" />
+          </g>
+        </g>
+        <g id="XMLID_2_">
+          <g id="XMLID_5_" class="animated-11 flash">
+            <path id="XMLID_6_" fill="#189DA8" d="M16.4,101.6c-0.2,0.2-0.5,0.4-0.9,0.4H8.2c-0.8,0-1.5-0.7-1.5-1.5S7.4,99,8.2,99h7.4
+              c0.8,0,1.5,0.6,1.5,1.4C17,100.9,16.8,101.3,16.4,101.6z" />
+          </g>
+          <g id="XMLID_3_" class="animated-11 flash">
+            <path id="XMLID_4_" fill="#189DA8" d="M188.6,101.6c-0.2,0.2-0.5,0.4-0.9,0.4h-8c-0.8,0-1.5-0.7-1.5-1.5s0.7-1.5,1.5-1.5h8
+              c0.8,0,1.5,0.6,1.5,1.4C189.2,100.9,189,101.3,188.6,101.6z" />
+          </g>
+        </g>
+        <g id="XMLID_53_" class="animated-11 flash">
+          <g id="XMLID_56_">
+            <path id="XMLID_121_" fill="#189DA8" d="M72.4,23.2c-0.6,0-1.2-0.4-1.4-1l-2.3-7c-0.3-0.8,0.2-1.6,0.9-1.9
+              c0.8-0.2,1.6,0.2,1.9,0.9l2.3,7c0.3,0.8-0.2,1.6-0.9,1.9C72.7,23.2,72.5,23.2,72.4,23.2z" />
+          </g>
+          <g id="XMLID_55_" class="animated-11 flash">
+            <path id="XMLID_120_" fill="#189DA8" d="M125.6,187c-0.6,0-1.2-0.4-1.4-1l-2.5-7.6c-0.3-0.8,0.2-1.6,0.9-1.9
+              c0.8-0.2,1.6,0.2,1.9,0.9l2.5,7.6c0.3,0.8-0.2,1.6-0.9,1.9C125.9,187,125.8,187,125.6,187z" />
+          </g>
+        </g>
+      </g>
+      <g class="animated-12 flash">
+        <g id="XMLID_50_">
+          <rect id="XMLID_48_" x="91.4" y="117.6" fill="#FDEFA5" width="12.9" height="32.1" />
+          <path id="XMLID_49_" fill="#189DA8" d="M105.8,151.2H89.9v-35.1h15.9V151.2z M92.9,148.3h10v-29.2h-10V148.3z" />
+        </g>
+        <g id="XMLID_47_">
+          <path id="XMLID_44_" fill="#FDEFA5" d="M138.7,66H116v44h9.1c9.4,0,20.3-5.4,22.7-15.4c1.9-7.6,2-17.2,1.5-21.7
+            C148.7,66.7,143.6,66,138.7,66z M140.2,90.1c-1,9.2-10.2,11.8-16.2,11.8V74h14.7c1.7,0,2.6-0.9,2.6,2.8
+            C141.3,76.8,140.9,83.2,140.2,90.1z" />
+          <path id="XMLID_112_" fill="#189DA8" d="M125.1,111.8h-9.4v-48h23c7.4,0,11.5,2.9,12.1,8.7c0.5,4.8,0.4,15-1.5,22.7
+            C146.6,105.9,134.9,111.8,125.1,111.8z M118.7,108.8h6.5c8.6,0,19-5,21.3-14.4c1.8-7.4,2-17.1,1.5-21.7c-0.4-4.2-3.3-6.1-9.2-6.1
+            h-20v42.2H118.7z M125.1,103.4h-1.5V71.6h15.1c0.2,0,0.3,0,0.4,0c0.9,0,1.9-0.1,2.8,0.8c0.8,0.7,1.1,1.9,1.1,3.9
+            c0,0.1-0.1,7-0.8,14l0,0C141.2,100,132.3,103.4,125.1,103.4z M126.5,74.5v25.9c3.5-0.3,11.9-1.9,12.7-10.4l0,0
+            c0.7-6.8,0.8-13.6,0.8-13.7c0-1.1-0.1-1.6-0.2-1.8c-0.2,0-0.4,0-0.6,0c-0.2,0-0.3,0-0.5,0H126.5z" />
+        </g>
+        <g id="XMLID_43_">
+          <path id="XMLID_103_" fill="#FDEFA5"
+            d="M45,73c-0.5,4.5-0.4,14.2,1.5,21.8C49,104.7,59.9,110,69.2,110H77V66H55.6
+            C50.7,66,45.6,66.8,45,73z M52.8,76.8c0-3.7,1.2-2.8,2.8-2.8H69v28c-6,0-14.6-2.4-15.5-11.6C52.7,83.4,52.8,76.8,52.8,76.8z" />
+          <path id="XMLID_106_" fill="#189DA8"
+            d="M78.5,111.8h-9.3c-9.7,0-21.5-5.8-24.2-16.6c-1.9-7.7-2-17.9-1.5-22.7
+            c0.6-5.8,4.7-8.7,12.1-8.7h22.8v48H78.5z M55.6,66.7c-5.9,0-8.8,1.9-9.2,6.1l0,0c-0.5,4.6-0.4,14.3,1.5,21.7
+            c2.3,9.4,12.7,14.4,21.3,14.4h6.3V66.7H55.6z M70.6,103.4h-1.5c-7.2,0-16.1-3.4-17.1-13.1c-0.7-7-0.8-13.9-0.8-14l0,0
+            c0-2,0.3-3.2,1.1-3.9c0.9-0.8,1.9-0.8,2.8-0.8c0.1,0,0.3,0,0.4,0h15L70.6,103.4L70.6,103.4z M54.3,76.3c0,0.2,0.1,7,0.8,13.7
+            c0.9,8.5,9.1,10.1,12.7,10.4V74.5H55.6c-0.2,0-0.4,0-0.5,0c-0.2,0-0.5,0-0.6,0C54.4,74.7,54.3,75.1,54.3,76.3z" />
+        </g>
+        <g id="XMLID_42_">
+          <path id="XMLID_159_" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" d="M113.8,106.5" />
+        </g>
+        <g id="XMLID_41_">
+          <path id="XMLID_99_" fill="#FDEFA5" d="M97.6,125.7c-11.2,0-28.5-8.8-28.5-26.6s0.1-43.9,0.1-43.9c0-3.6,1.1-4.7,4.3-4.7h48.1
+            c3.2,0,4.4,1.1,4.4,4.7c0,0,0.3,26.5-0.1,43.9S108.7,125.7,97.6,125.7z" />
+          <path id="XMLID_100_" fill="#189DA8" d="M97.6,127.1c-12.6,0-30-9.8-30-28.1c0-17.6,0.1-43.7,0.1-44c0-4.3,1.7-6.2,5.8-6.2h48.1
+            c4.1,0,5.8,1.8,5.8,6.2c0,0.2,0.3,26.7-0.1,44C127,117.2,109.5,127.1,97.6,127.1z M73.5,51.9c-2.3,0-2.9,0.3-2.9,3.2
+            c0,0.3-0.1,26.3-0.1,43.9c0,9.5,5.2,15.5,9.5,18.8c5,3.9,11.8,6.3,17.6,6.3c10.7,0,26.5-9,26.8-25.2c0.4-17.2,0.1-43.6,0.1-43.9
+            c0-2.9-0.6-3.2-2.9-3.2L73.5,51.9L73.5,51.9z" />
+        </g>
+        <g id="XMLID_40_">
+          <path id="XMLID_11_" fill="#FDEFA5"
+            d="M124,156L124,156c0-6.8-3.7-12-10.5-12H82c-6.8,0-13,5.2-13,12l0,0v1h55V156z" />
+          <path id="XMLID_96_" fill="#189DA8" d="M126,158H68v-2c0-7.5,6.3-14,14-14h31.5c7.4,0,12.5,6.1,12.5,14V158z M70.7,155h52.8
+            c-0.5-6-4.6-10-10-10H82C76.3,145,71.3,149,70.7,155z" />
+        </g>
+        <g id="XMLID_39_">
+          <rect id="XMLID_95_" x="69" y="60" fill="#189DA8" width="56" height="3" />
+        </g>
+        <g id="XMLID_38_">
+          <path id="XMLID_94_" fill="#FFFFFF" d="M114.5,94.6c-0.8,0-1.5-0.7-1.5-1.5V70.6c0-0.8,0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5v22.5
+            C116,93.9,115.3,94.6,114.5,94.6z" />
+        </g>
+        <g id="XMLID_37_">
+          <path id="XMLID_93_" fill="#FFFFFF" d="M108.2,113.1c-0.3,0-0.5-0.1-0.8-0.2c-0.7-0.4-0.9-1.3-0.5-2c0.2-0.4,0.6-0.6,0.9-0.7
+            c0.6-0.3,2.3-1.1,4.2-3.5c1.4-1.8,1.7-5.1,1.7-6.2c0-0.8,0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5c0,0.2,0,5.1-2.3,8c-2.3,3-4.5,4-5.3,4.3
+            H109C108.8,113,108.5,113.1,108.2,113.1z" />
+        </g>
+        <g id="XMLID_33_">
+          <path id="XMLID_92_" fill="#FFFFFF" d="M113.8,72H98.1c-0.8,0-1.5-0.7-1.5-1.5s0.7-1.5,1.5-1.5h15.7c0.8,0,1.5,0.7,1.5,1.5
+            S114.6,72,113.8,72z" />
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <br><br><br><br><br>
+
+  <!-- Testimonial -->
+  <section class="testimonial">
+    <div class="testimonial__container container container--px">
+      <div class="testimonial__header flex">
+        <div class="testimonial__text">
+          <h1 class="subtitle-primary">Benefits</h1>
+          <h2 class="title-primary" style="color: lightseagreen">What Do You Get?</h2>
+        </div>
+
+        <div class="testimonial__controls flex">
+          <button type="button" id="sliderPrevBtn" class="testimonials__prev cta cta--btn cta--btn_gray disabled"
+            aria-label="Previous testimonial">
+            <svg class="cta--btn-icon" viewBox="0 0 14 11" aria-hidden="true" focusable='false'>
+              <path d="M13 5.5L1 5.5M1 5.5L5.5 10M1 5.5L5.5 1" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          <button type="button" id="sliderNextBtn" class="testimonials__next cta cta--btn cta--btn_yellow"
+            aria-label="Next testimonial">
+            <svg class="cta--btn-icon" viewBox="0 0 14 11" aria-hidden="true" focusable='false'>
+              <path d="M1 5.5L13 5.5M13 5.5L8.5 1M13 5.5L8.5 10" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="testimonial__wrapper">
+        <div id="sliderArea" class="testimonial__slider flex">
+          <div class="testimonial__slide">
+            <div class="testimonial__slide-header flex">
+              <div class="testimonial__slide-data flex">
+
+
+              </div>
+
+
+            </div>
+            <br><br>
+
+            <div class="testimonial__slide-body">
+              <div class="testimonial__slide-info">
+
+
+                <h3 class="testimonial__slide-name">Research fund worth of 10K </h3>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial__slide">
+            <div class="testimonial__slide-header flex">
+              <div class="testimonial__slide-data flex">
+
+
+              </div>
+
+
+            </div>
+            <br><br>
+            <div class="testimonial__slide-body">
+              <div class="testimonial__slide-info">
+                <h3 class="testimonial__slide-name">Certificates till phase4 partcipants</h3>
+                <br><br>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial__slide">
+            <div class="testimonial__slide-header flex">
+              <div class="testimonial__slide-data flex">
+
+
+              </div>
+
+
+            </div>
+            <br><br>
+            <div class="testimonial__slide-body">
+              <div class="testimonial__slide-info">
+                <h3 class="testimonial__slide-name">Intern Opportunity</h3>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial__slide">
+            <div class="testimonial__slide-header flex">
+              <div class="testimonial__slide-data flex">
+
+
+              </div>
+
+
+            </div>
+            <br><br>
+            <div class="testimonial__slide-body">
+              <div class="testimonial__slide-info">
+                <h3 class="testimonial__slide-name">Weekly random gift card</h3>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial__slide">
+            <div class="testimonial__slide-header flex">
+              <div class="testimonial__slide-data flex">
+
+
+              </div>
+
+
+            </div>
+            <br><br>
+            <div class="testimonial__slide-body">
+              <div class="testimonial__slide-info">
+                <h3 class="testimonial__slide-name">Access to video course</h3>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+      <div class="testimonial__footer">
+        <a href="#" class="testimonial__link cta cta--link">
+          See all benefits
+          <svg class="testimonial__link__icon cta--link-icon" viewBox="0 0 17 14" aria-hidden="true" focusable='false'>
+            <path d="M1 7.375L16 7.375M16 7.375L10.375 1.75M16 7.375L10.375 13" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <!-- Main -->
+  <main class="main">
+    <!-- Hero -->
+
+
+
+
+    <!-- Features -->
+
+
+    <!-- Portfolio -->
+    <!-- <section class="portfolio">
+              <div class="portfolio__container container container--px">
+                <div class="portfolio__text">
+                  <h1 class="portfolio__subtitle subtitle-primary">Portfolio</h1>
+                  <h2 class="portfolio__title title-primary">Introducing our works</h2>
+                </div>
+          
+                <div class="portfolio__wrapper">
+                  <div class="portfolio__card card--1">
+                    <img src="https://raw.githubusercontent.com/alawe45/Html-Css-Js-game-agency-project/master/images/portfolio__img-1.jpg" alt="Valorant Jett character image" class="card__image" loading="lazy">
+          
+                    <div class="card__content">
+                      <div class="card__header">
+                        <h3 class="card__title">Valorant Website Design</h3>
+                        <button type="button" class="cta cta--btn cta--btn_yellow cta--btn_active" aria-label="view portfolio" aria-expanded="false">
+                          <svg class="cta--btn-icon" viewBox="0 0 14 11" aria-hidden="true" focusable='false'>
+                            <path d="M1 5.5L13 5.5M13 5.5L8.5 1M13 5.5L8.5 10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                      </div>
+          
+                      <p class="card__description">
+                        Lorem ipsum dolor sit amet,
+                        consec tetur adipiscing elit.
+                      </p>
+                    </div>
+                  </div>
+          
+                  <div class="portfolio__card card--2">
+                    <img src="https://raw.githubusercontent.com/alawe45/Html-Css-Js-game-agency-project/master/images/portfolio__img-2.jpg" alt="Fortnite image" class="card__image" loading="lazy">
+          
+                    <div class="card__content">
+                      <div class="card__header">
+                        <h3 class="card__title">Fortnite Game Reports</h3>
+                        <button type="button" class="cta cta--btn cta--btn_yellow" aria-label="view portfolio" aria-expanded="false">
+                          <svg class="cta--btn-icon" viewBox="0 0 14 11" aria-hidden="true" focusable='false'>
+                            <path d="M1 5.5L13 5.5M13 5.5L8.5 1M13 5.5L8.5 10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                      </div>
+          
+                      <p class="card__description">
+                        Lorem ipsum dolor sit amet,
+                        consec tetur adipiscing elit.
+                      </p>
+                    </div>
+                  </div>
+          
+                  <div class="portfolio__card card--3">
+                    <img src="https://raw.githubusercontent.com/alawe45/Html-Css-Js-game-agency-project/master/images/portfolio__img-3.jpg" alt="Overwatch sigma character image" class="card__image" loading="lazy">
+          
+                    <div class="card__content">
+                      <div class="card__header">
+                        <h3 class="card__title">Overwatch Social Media</h3>
+                        <button type="button" class="cta cta--btn cta--btn_yellow" aria-label="view portfolio" aria-expanded="false">
+                          <svg class="cta--btn-icon" viewBox="0 0 14 11" aria-hidden="true" focusable='false'>
+                            <path d="M1 5.5L13 5.5M13 5.5L8.5 1M13 5.5L8.5 10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                      </div>
+          
+                      <p class="card__description">
+                        Lorem ipsum dolor sit amet,
+                        consec tetur adipiscing elit.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+          
+                <div class="portfolio__footer">
+                  <a href="#" class="portfolio__link cta cta--link">
+                    View portfolio
+                    <svg class="testimonial__link__icon cta--link-icon" viewBox="0 0 17 14" aria-hidden="true" focusable='false'>
+                      <path d="M1 7.375L16 7.375M16 7.375L10.375 1.75M16 7.375L10.375 13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </section> -->
+
+
+
+    <!-- Team -->
+    <section class="team">
+      <div class="team__container container container--px">
+        <div class="team__text">
+          <h1 class="subtitle-primary">Guests</h1>
+          <h2 class="title-primary" style="color: lightseagreen">Our Judges</h2>
+        </div>
+
+        <div class="team__wrapper">
+          <div class="team__member member member--1">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRormNx-cWkV0Ggs-j5Jnk6g6x7JSyVqRh7uA&usqp=CAU"
+              alt="team member avatar" class="member__image" loading="lazy">
+
+            <div class="member__info">
+              <h3 class="member__title">Suresh Sambandham</h3>
+             
+            </div>
+          </div>
+
+          <div class="team__member member member--2">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4XSv8zvv1XvIvvz8PFg8hRwUTQJjbis-CJg&usqp=CAU"
+              alt="team member avatar" class="member__image" loading="lazy">
+
+            <div class="member__info">
+              <h3 class="member__title">Startup Founders</h3>
+              
+            </div>
+          </div>
+
+          <div class="team__member member member--3">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGcFYBKGruads8sUVAfUBlX8orSdEwuSSTg&usqp=CAU"
+              alt="team member avatar" class="member__image" loading="lazy">
+
+            <div class="member__info">
+              <h3 class="member__title">Tech based Founders</h3>
+             
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="team__footer">
+          <a href="#" class="team__link cta cta--link">
+            View all
+            <svg class="testimonial__link__icon cta--link-icon" viewBox="0 0 17 14" aria-hidden="true"
+              focusable='false'>
+              <path d="M1 7.375L16 7.375M16 7.375L10.375 1.75M16 7.375L10.375 13" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- Partbers -->
+    <section class="partners">
+      <div class="partners__container container container--px">
+        <h1 class="partners__title">We are trusted by hundreads of tech companies</h1>
+
+        <div class="partners__wrapper">
+          <a href="#" class="partners__item">
+            <img
+              src="https://raw.githubusercontent.com/alawe45/Html-Css-Js-game-agency-project/master/images/partner-1.png "
+              alt="Riot Games" class="partner__img">
+          </a>
+          <a href="#" class="partners__item">
+            <img
+              src="https://raw.githubusercontent.com/alawe45/Html-Css-Js-game-agency-project/master/images/partner-2.png"
+              alt="Blizzard" class="partner__img">
+          </a>
+          <a href="#" class="partners__item">
+            <img
+              src="https://raw.githubusercontent.com/alawe45/Html-Css-Js-game-agency-project/master/images/partner-3.png"
+              alt="Zynga" class="partner__img">
+          </a>
+          <a href="#" class="partners__item">
+            <img
+              src="https://raw.githubusercontent.com/alawe45/Html-Css-Js-game-agency-project/master/images/partner-4.png"
+              alt="Sega" class="partner__img">
+          </a>
+          <a href="#" class="partners__item">
+            <img
+              src="https://raw.githubusercontent.com/alawe45/Html-Css-Js-game-agency-project/master/images/partner-5.png"
+              alt="Activision" class="partner__img">
+          </a>
+
+          <a href="#" class="partners__item">
+            <img
+              src="https://raw.githubusercontent.com/alawe45/Html-Css-Js-game-agency-project/master/images/partner-1.png "
+              alt="Riot Games" class="partner__img">
+          </a>
+          <br><br><br><br><br>
+          <a href="#" class="partners__item">
+            <img
+              src="https://raw.githubusercontent.com/alawe45/Html-Css-Js-game-agency-project/master/images/partner-2.png"
+              alt="Blizzard" class="partner__img">
+          </a>
+          <a href="#" class="partners__item">
+            <img
+              src="https://raw.githubusercontent.com/alawe45/Html-Css-Js-game-agency-project/master/images/partner-2.png"
+              alt="Blizzard" class="partner__img">
+          </a>
+          <a href="#" class="partners__item">
+            <img
+              src="https://raw.githubusercontent.com/alawe45/Html-Css-Js-game-agency-project/master/images/partner-3.png"
+              alt="Zynga" class="partner__img">
+          </a>
+          <a href="#" class="partners__item">
+            <img
+              src="https://raw.githubusercontent.com/alawe45/Html-Css-Js-game-agency-project/master/images/partner-4.png"
+              alt="Sega" class="partner__img">
+          </a>
+          <a href="#" class="partners__item">
+         
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- Footer (: -->
+  <footer class="footer">
+    <div class="footer__container container container--px flex">
+      <div class="footer__header flex">
+        <a href="#" class="footer__brand" title="Back to the homepage"> <p class="footer__text">© 2022 CIDORA</p></a>
+
+     
+      </div>
+
+      <!-- <nav class="footer__inner flex">
+        <ul class="footer__list list" role="menu">
+          <h3 class="list__title">Home</h3>
+
+        
+        </ul>
+        <ul class="footer__list list" role="menu">
+          <h3 class="list__title">Pages</h3>
+
+        </ul>
+        <ul class="footer__list list" role="menu">
+          <h3 class="list__title">Blog</h3>
+
+         
+        </ul>
+        <ul class="footer__list list" role="menu">
+          <h3 class="list__title">Portfolio</h3>
+
+        
+        </ul>
+      </nav> -->
+ 
+
+     
+    </div>
+  </footer>
+  <script>
+    // Get Header
+    const header = document.getElementById('header');
+
+    // Get menu list
+    const menuList = document.getElementById('menuList');
+
+    // Get overLay layer
+    const overlay = document.getElementById('overlayLayer');
+
+    // Get toggle menu button
+    const toggleMenuButton = document.getElementById('toggleMenuBtn');
+
+    // Get slider area
+    const sliderArea = document.querySelector('#sliderArea');
+
+    // Get slider items
+    const sliderItems = Array.from(document.querySelectorAll('.testimonial__slider .testimonial__slide'));
+
+    // Get number of slides
+    const slidesCount = sliderItems.length;
+
+    // Get previous and next buttons
+    const nextButton = document.querySelector('#sliderNextBtn');
+    const previousButton = document.querySelector('#sliderPrevBtn');
+
+    // Get slide width
+    var slideWidth = sliderItems[0].offsetWidth;
+
+    // Set current slide
+    var currentSlide = 0;
+
+    // Function definitions
+    let preventMneuLinksFronFoucs;
+
+    // Handle (resize) events
+    window.addEventListener('resize', () => {
+      // Call functions
+      preventMneuLinksFronFoucs();
+      updateSlideWidth();
+    });
+
+    // Handle (click) event on (previous) and (next) buttons
+    nextButton.addEventListener('click', nextSlide);
+    previousButton.addEventListener('click', previousSlide);
+
+    // Handle (click) events
+    toggleMenuButton.addEventListener('click', function () {
+      // Check, if the (aria-expanded) value is (false)
+      if (toggleMenuButton.getAttribute('aria-expanded') == 'false') {
+        // Call function
+        openMneu();
+      } else { // Else
+        // Call function
+        closeMenu();
+      };
+    });
+    overlay.addEventListener('click', closeMenu);
+
+    // When scroll change, add class on (header) (the scroll effect of header)
+    window.addEventListener('scroll', function (e) {
+      if (this.scrollY > header.offsetHeight / 2) {
+        header.classList.add('header--active');
+      } else {
+        header.classList.remove('header--active');
+      }
+    });
+
+    // Open mneu function
+    function openMneu() {
+      toggleMenuButton.setAttribute('aria-expanded', 'true');
+      toggleMenuButton.classList.add('toggle-menu--active');
+
+      document.body.classList.add('scroll-hide');
+      menuList.classList.add('navbar__menu--open');
+      menuList.querySelectorAll('a').forEach(link => {
+        link.setAttribute('tabindex', '0');
+      });
+      overlay.classList.add('header__overlay--open');
+
+      // Listen for (keydown)
+      document.addEventListener('keydown', handleKeyDown);
+
+      // Handle key down function 
+      function handleKeyDown(e) {
+        if (e.code == 'Tab') {
+          // Call function
+          menuFocusSystem();
+          // Remove the (event listener)
+          document.removeEventListener('keydown', handleKeyDown);
+        };
+      };
+    };
+
+    // Close mneu function
+    function closeMenu() {
+      toggleMenuButton.setAttribute('aria-expanded', 'false');
+      toggleMenuButton.classList.remove('toggle-menu--active');
+
+      document.body.classList.remove('scroll-hide');
+      menuList.classList.remove('navbar__menu--open');
+      menuList.querySelectorAll('a').forEach(link => {
+        link.setAttribute('tabindex', '-1');
+      });
+      overlay.classList.remove('header__overlay--open');
+    };
+
+    // Menu focus system function (to control the focus, of the menu when open)
+    function menuFocusSystem() {
+      // Get first and last child of (menuList)
+      const firstChild = menuList.querySelectorAll('a')[0];
+      const lastChild = menuList.querySelectorAll('a')[menuList.childElementCount - 1];
+
+      // Focus the first item of the menu List
+      setTimeout(() => {
+        menuList.querySelectorAll('a')[0].focus();
+      }, 100);
+
+      // Keep focus inside menu
+      menuList.addEventListener('focusin', function (e) {
+        if (e.target == lastChild) {
+          e.target.addEventListener('focusout', function () {
+            toggleMenuButton.focus();
+          });
+        };
+      });
+    };
+
+    // Prevent menu links from focus function
+    (preventMneuLinksFronFoucs = function () {
+      if (window.innerWidth < 640) {
+        menuList.querySelectorAll('a').forEach(link => {
+          link.setAttribute('tabindex', '-1');
+        });
+      } else {
+        menuList.querySelectorAll('a').forEach(link => {
+          link.setAttribute('tabindex', '0');
+        });
+      }
+    })();
+
+    // Update slide width function
+    function updateSlideWidth() {
+      // Set up (slideWidth) value
+      slideWidth = sliderItems[0].offsetWidth;
+
+      // Set (marginLeft) of the (sliderArea)
+      sliderArea.style.marginLeft = `-${slideWidth * currentSlide}px`;
+    };
+
+    // Next slide function
+    function nextSlide() {
+      if (!nextButton.classList.contains('disabled')) {
+        // increment (currentSlide);
+        currentSlide++;
+
+        // Call function
+        sliderChecker();
+      }
+    };
+
+    // Previous slide function
+    function previousSlide() {
+      if (!previousButton.classList.contains('disabled')) {
+        // Decrement (currentSlide);
+        currentSlide--;
+
+        // Call function
+        sliderChecker();
+      }
+    };
+
+    // Slider checker
+    function sliderChecker() {
+      // Multiply (slideWidth) with (currentSlide)
+      let sliderMove = slideWidth * currentSlide;
+
+      // Move (sliderArea) with the (sliderMove) value
+      sliderArea.style.marginLeft = `-${sliderMove}px`;
+
+      // Check if (currentslide) is the first
+      if (currentSlide == 0) {
+        // Add (disabled) class on (previousButton)
+        previousButton.classList.add('disabled');
+
+        // Move the focus on (nextButton)
+        nextButton.focus();
+      } else { // Else
+        // Remove (disabled) class from (previousButton)
+        previousButton.classList.remove('disabled');
+      };
+
+      // Check if (currentslide) is the last
+      if (currentSlide == slidesCount - 1) {
+        // Add (disabled) class on (nextButton)
+        nextButton.classList.add('disabled');
+
+        // Move the focus on (previousButton)
+        previousButton.focus();
+      } else { // Else
+        // Remove (disabled) class from (nextButton)
+        nextButton.classList.remove('disabled');
+      };
+    };
+  </script>
+
+</body>
+
+</html>

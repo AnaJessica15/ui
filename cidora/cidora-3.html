@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script  type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="https://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/alphabet.js"></script>
+
+
+
+</head>
+<body>
+
+
+      
+     
+          <canvas id="myCanvas"></canvas>
+            <script type="text/javascript" src="https://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/bubbles.js"></script>
+            <script type="text/javascript" src="main.js"></script>
+
+        <script>
+            var myName = "Hacking !!!";
+
+var red = [0, 100, 63];
+var orange = [40, 100, 60];
+var green = [75, 100, 40];
+var blue = [196, 77, 55];
+var purple = [280, 50, 60];
+var letterColors = [black, orange, green, blue, purple];
+
+drawName(myName, letterColors);
+
+if(10 < 3)
+{
+    bubbleShape = 'square';
+}
+else
+{
+    bubbleShape = 'circle';
+}
+
+bounceBubbles();
+var j = 0;  // animation control iterator
+
+var charsToAnimate = document.getElementById("toAnimate").innerHTML;
+var numOfCharacters = charsToAnimate.length;
+var animationWrapper = document.getElementById("animationWrapper");
+var characters = new Array();
+
+addSpansToNode();
+
+/*
+ *  make span's out of the text node and add it to the DOM
+ *  fill the characters array with the span's for later  
+ * 
+ */
+function addSpansToNode() {
+  for (i = 0; i < numOfCharacters; i++) {
+    var white = new RegExp(/^\s$/);  // catch the whitespace
+    var span = document.createElement('span');
+    span.className = ('position-me');
+    
+    /*
+     *  turn white spaces into &nbsp; because of
+     *  display:inline-block
+     */
+    if (white.test(charsToAnimate.charAt(i))) {
+      span.innerHTML = "&nbsp;";
+    }
+    else {
+      span.innerHTML = charsToAnimate.charAt(i);
+    }
+    
+    if (charsToAnimate.charAt(i) == "❤") {
+      span.className = "position-me s-lovely";
+    }
+    
+    animationWrapper.appendChild(span);
+    
+    // white space animation -> nope!!!
+    if (!white.test(charsToAnimate.charAt(i))) {
+      span.innerHTML = charsToAnimate.charAt(i) + '<span class="animate-me"><a href="https://www.facebook.com/profile.php?id=100005971335452" target="_blank">' + charsToAnimate.charAt(i); + '</a></span>';
+    }
+    
+    
+  }
+  
+  characters = document.getElementsByClassName('animate-me');
+  
+  // hide the reference span
+  document.getElementById("toAnimate").className = 's-hidden';
+}
+
+/*
+ *  add an event listener to our character
+ *  start the animation by adding the animate class
+ */
+function animate() {
+  characters[j].addEventListener("webkitAnimationStart", listener, false);
+  characters[j].addEventListener("MSAnimationStart", listener, false);
+  characters[j].addEventListener("animationstart", listener, false);
+  characters[j].addEventListener("oanimationstart", listener, false);
+  
+  characters[j].addEventListener("webkitAnimationEnd", listener, false);
+  characters[j].addEventListener("MSAnimationEnd", listener, false);
+  characters[j].addEventListener("animationend", listener, false);
+  characters[j].addEventListener("oanimationend", listener, false);
+  
+  characters[j].className = "animate-me s-animating" ;
+}
+
+/*
+ *  when the animation is finished get rid of the animate class
+ *  increase the iterator so the animation is ready for the next
+ *  character
+ */
+function listener(e) {
+  switch(e.type) {
+    case "webkitAnimationEnd":
+    case "MSAnimationEnd":
+    case "animationend":
+    case "oanimationend":
+      characters[j].className = "animate-me";
+      
+      j++;
+      
+      if (j >= characters.length) {
+        j = 0;
+        // break;  // uncomment if you want to animate only once
+      }  
+      
+      animate();
+  }
+}
+        </script>
+        </body>
+       
+            <html>
