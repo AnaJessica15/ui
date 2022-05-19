@@ -14,7 +14,7 @@ env:
   MainBranch: main
   NPMRegistry: https://registry.npmjs.org/
   InstallCommand: /
-  BuildCommand: /
+  BuildCommand: /cidora/cidora.html
   Output: ./cidora/cidora.html
 
 jobs:
